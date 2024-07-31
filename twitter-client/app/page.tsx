@@ -1,7 +1,14 @@
 import Image from "next/image";
-import { BsTwitter } from "react-icons/bs";
-import { RiHome7Line } from "react-icons/ri";
+import { BsPeople, BsTwitterX } from "react-icons/bs";
 import React from "react";
+import { AiFillHome } from "react-icons/ai";
+import { FiSearch } from "react-icons/fi";
+import { SlBell } from "react-icons/sl";
+import { FaRegBookmark, FaRegEnvelope } from "react-icons/fa";
+import { RiSlashCommands2 } from "react-icons/ri";
+import { FaXTwitter } from "react-icons/fa6";
+import { IoPersonOutline } from "react-icons/io5";
+import { PiDotsThreeCircle } from "react-icons/pi";
 
 interface TwitterSidebarButton {
   title: string;
@@ -11,27 +18,55 @@ interface TwitterSidebarButton {
 const sidebarMenuItems: TwitterSidebarButton[] = [
   { 
     title: 'Home', 
-    icon: <RiHome7Line /> 
+    icon: <AiFillHome /> 
+  },{
+    title:'Explore',
+    icon : <FiSearch />
+  },{
+    title:'Notifications',
+    icon : <SlBell />
+  },{
+    title:'Messages',
+    icon : <FaRegEnvelope />
+  },{
+    title:'Grok',
+    icon : <RiSlashCommands2 />
+  },{
+    title:'Bookmarks',
+    icon : <FaRegBookmark />
+  },{
+    title : 'Communities',
+    icon : <BsPeople />
+  },{
+    title : 'Premium',
+    icon : <FaXTwitter />
+  },{
+    title : 'Profile',
+    icon : <IoPersonOutline />
+  },{
+    title : 'More',
+    icon : <PiDotsThreeCircle />
   }
 ];
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-12 h-screen w-screen px-56">
-      <div className="col-span-3 pt-8 px-4">
-        <div className="text-4xl h-fit hover:bg-gray-800 rounded-full p-2 cursor-pointer transition-all w-fit">
-          <BsTwitter />
+    <div className="grid grid-cols-12 h-screen w-screen px-24">
+      <div className="col-span-3 pt-3 px-4">
+        <div className="text-4xl h-fit hover:bg-gray-800 rounded-full p-3 cursor-pointer transition-all w-fit">
+        <BsTwitterX />
         </div>
-        <div className="mt-4 text-2xl font-bold">
+        <div className="mt-2 text-2xl font-semibold">
           <ul>
             {sidebarMenuItems.map(item => (
-              <li className="flex justify-start items-center gap-4 hover:bg-gray-800 rounded-full px-4 py-2 w-fit" key={item.title}>
+              <li className="flex justify-start items-center gap-4 hover:bg-gray-800 rounded-full px-5 py-2 w-fit cursor-pointer" key={item.title}>
                 <span>{item.icon}</span>
                 <span>{item.title}</span>
               </li>
             ))}
           </ul>
         </div>
+        <button className="bg-[#1A8CD8] w-full p-4 rounded-full mt-2">Post</button>
       </div>
       <div className="col-span-6 border-r-[1px] border-l-[1px] border-gray-400"></div>
       <div className="col-span-3"></div>
